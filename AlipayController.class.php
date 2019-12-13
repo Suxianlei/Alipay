@@ -255,4 +255,22 @@ class AlipayController extends Controller
         return $event_type->item ( 0 )->nodeValue;
     }
 
+    /**
+     * 判断是否微信内置浏览器访问
+     * @return bool
+     */
+    function isWxClient()
+    {
+        return strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false;
+    }
+
+    /**
+     * 判断是否支付宝内置浏览器访问
+     * @return bool
+     */
+    function isAliClient()
+    {
+        return strpos($_SERVER['HTTP_USER_AGENT'], 'Alipay') !== false;
+    }
+
 }
